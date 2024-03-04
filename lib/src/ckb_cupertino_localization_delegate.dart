@@ -401,4 +401,7 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
 
   @override
   String get todayLabel => 'ئەمڕۆ';
+
+  @override
+  String get clearButtonLabel => 'سڕینەوە';
 }
