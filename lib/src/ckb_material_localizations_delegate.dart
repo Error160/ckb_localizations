@@ -540,6 +540,12 @@ class MaterialLocalizationCkb extends GlobalMaterialLocalizations {
 
   @override
   String get viewLicensesButtonLabel => 'بینینی مۆڵەتەکان';
+
+  @override
+  String get clearButtonTooltip => "سڕینەوە";
+
+  @override
+  String get selectedDateLabel => "كات";
 }
 
 abstract class GlobalWidgetsLocalizations implements WidgetsLocalizations {

@@ -1,18 +1,22 @@
 name: ckb_localizations
 description: "Support for kurdish sorani language ckb"
-version: 0.0.2
+version: 0.0.4
 homepage: https://github.com/masreplay/ckb_localizations
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
   flutter: ">=1.17.0"
 
+
+scripts:
+  publish: dart pub publish --force
+
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.1
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
