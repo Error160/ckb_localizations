@@ -1,4 +1,21 @@
 {
     "@@locale": "ckb",
-    "appName": "فلاتر"
+    "appName": "يك دو سي",
+    "stringFormat": "{version} نسخه",
+    "@stringFormat": {
+        "placeholders": {
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "datetimeFormat": "{version} نسخه",
+    "@datetimeFormat": {
+        "placeholders": {
+            "version": {
+                "type": "DateTime",
+                "format": "yMd"
+            }
+        }
+    }
 }

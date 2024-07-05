@@ -1,210 +1,13 @@
 import 'dart:async';
 
+import 'package:ckb_localizations/ckb_localizations.dart';
+import 'package:ckb_localizations/src/symbols.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_custom.dart' as date_symbol_data_custom;
-import 'package:intl/date_symbols.dart';
 import 'package:intl/intl.dart' as intl;
-
-final _ckbLocaleDatePatterns = {
-  'd': 'd.',
-  'E': 'ccc',
-  'EEEE': 'cccc',
-  'LLL': 'LLL',
-  'LLLL': 'LLLL',
-  'M': 'L.',
-  'Md': 'd.M.',
-  'MEd': 'EEE d.M.',
-  'MMM': 'LLL',
-  'MMMd': 'd. MMM',
-  'MMMEd': 'EEE d. MMM',
-  'MMMM': 'LLLL',
-  'MMMMd': 'd. MMMM',
-  'MMMMEEEEd': 'EEEE d. MMMM',
-  'QQQ': 'QQQ',
-  'QQQQ': 'QQQQ',
-  'y': 'y',
-  'yM': 'M.y',
-  'yMd': 'd.M.y',
-  'yMEd': 'EEE d.MM.y',
-  'yMMM': 'MMM y',
-  'yMMMd': 'd. MMM y',
-  'yMMMEd': 'EEE d. MMM y',
-  'yMMMM': 'MMMM y',
-  'yMMMMd': 'd. MMMM y',
-  'yMMMMEEEEd': 'EEEE d. MMMM y',
-  'yQQQ': 'QQQ y',
-  'yQQQQ': 'QQQQ y',
-  'H': 'HH',
-  'Hm': 'HH:mm',
-  'Hms': 'HH:mm:ss',
-  'j': 'HH',
-  'jm': 'HH:mm',
-  'jms': 'HH:mm:ss',
-  'jmv': 'HH:mm v',
-  'jmz': 'HH:mm z',
-  'jz': 'HH z',
-  'm': 'm',
-  'ms': 'mm:ss',
-  's': 's',
-  'v': 'v',
-  'z': 'z',
-  'zzzz': 'zzzz',
-  'ZZZZ': 'ZZZZ',
-};
-
-final ckbDateSymbols = DateSymbols(
-  NAME: 'ar',
-  ERAS: ['پ.ز', 'ز'],
-  ERANAMES: ['پێش زاینی', 'زاینی'],
-  NARROWMONTHS: [
-    'ک.د',
-    'ش',
-    'ز',
-    'ن',
-    'م',
-    'ح',
-    'ت',
-    'ئ',
-    'ل',
-    'ت.ی',
-    'ت.د',
-    'ک.ی',
-  ],
-  STANDALONENARROWMONTHS: [
-    'ک.د',
-    'ش',
-    'ز',
-    'ن',
-    'م',
-    'ح',
-    'ت',
-    'ئ',
-    'ل',
-    'ت.ی',
-    'ت.د',
-    'ک.ی',
-  ],
-  MONTHS: [
-    'کانونی دووەم',
-    'شوبات',
-    'ئازار',
-    'نیسان',
-    'مایس',
-    'حوزەیران',
-    'تەمموز',
-    'ئاب',
-    'ئەیلوول',
-    'تشرینی یەکەم',
-    'تشرینی دووەم',
-    'کانونی یەکەم',
-  ],
-  STANDALONEMONTHS: [
-    'کانونی دووەم',
-    'شوبات',
-    'ئازار',
-    'نیسان',
-    'مایس',
-    'حوزەیران',
-    'تەمموز',
-    'ئاب',
-    'ئەیلوول',
-    'تشرینی یەکەم',
-    'تشرینی دووەم',
-    'کانونی یەکەم',
-  ],
-  SHORTMONTHS: [
-    'کانونی دووەم',
-    'شوبات',
-    'ئازار',
-    'نیسان',
-    'مایس',
-    'حوزەیران',
-    'تەمموز',
-    'ئاب',
-    'ئەیلوول',
-    'تشرینی یەکەم',
-    'تشرینی دووەم',
-    'کانونی یەکەم',
-  ],
-  STANDALONESHORTMONTHS: [
-    'کانونی دووەم',
-    'شوبات',
-    'ئازار',
-    'نیسان',
-    'مایس',
-    'حوزەیران',
-    'تەمموز',
-    'ئاب',
-    'ئەیلوول',
-    'تشرینی یەکەم',
-    'تشرینی دووەم',
-    'کانونی یەکەم',
-  ],
-  WEEKDAYS: [
-    'یەکشەممە',
-    'دووشەممە',
-    'سێشەممە',
-    'چوارشەممە',
-    'پێنجشەممە',
-    'هەینی',
-    'شەممە',
-  ],
-  STANDALONEWEEKDAYS: [
-    'یەکشەممە',
-    'دووشەممە',
-    'سێشەممە',
-    'چوارشەممە',
-    'پێنجشەممە',
-    'هەینی',
-    'شەممە',
-  ],
-  SHORTWEEKDAYS: [
-    'یەکشەم',
-    'دووشەم',
-    'سێشەم',
-    'چوارشەم',
-    'پێنجشەم',
-    'هەینی',
-    'شەممە',
-  ],
-  STANDALONESHORTWEEKDAYS: [
-    'یەکشەم',
-    'دووشەم',
-    'سێشەم',
-    'چوارشەم',
-    'پێنجشەم',
-    'هەینی',
-    'شەممە',
-  ],
-  NARROWWEEKDAYS: ['ی', 'د', 'س', 'چ', 'پ', 'ه', 'ش'],
-  STANDALONENARROWWEEKDAYS: ['ی', 'د', 'س', 'چ', 'پ', 'ه', 'ش'],
-  SHORTQUARTERS: ['چ١', 'چ٢', 'چ٣', 'چ٤'],
-  QUARTERS: ['چارەکی یەکەم', 'چارەکی دووەم', 'چارەکی سێیەم', 'چارەکی چوارەم'],
-  AMPMS: ['پ.ن', 'د.ن'],
-  DATEFORMATS: [
-    'EEEE، d MMMM y',
-    'd MMMM y',
-    'dd‏/MM‏/y',
-    'd‏/M‏/y',
-  ],
-  TIMEFORMATS: [
-    'h:mm:ss a zzzz',
-    'h:mm:ss a z',
-    'h:mm:ss a',
-    'h:mm a',
-  ],
-  FIRSTDAYOFWEEK: 5,
-  WEEKENDRANGE: [4, 5],
-  FIRSTWEEKCUTOFFDAY: 3,
-  DATETIMEFORMATS: [
-    '{1} {0}',
-    '{1} {0}',
-    '{1} {0}',
-    '{1} {0}',
-  ],
-);
+import 'package:intl/number_symbols_data.dart';
 
 class _CupertinoLocalizationsDelegateCkb
     extends LocalizationsDelegate<CupertinoLocalizations> {
@@ -215,12 +18,14 @@ class _CupertinoLocalizationsDelegateCkb
 
   @override
   Future<CupertinoLocalizations> load(Locale locale) async {
-    const String localeName = "ar";
+    const localeName = CkbLocalizations.localeName;
+
+    numberFormatSymbols[localeName] = numberSymbolsCkb;
 
     date_symbol_data_custom.initializeDateFormattingCustom(
       locale: localeName,
-      patterns: _ckbLocaleDatePatterns,
-      symbols: ckbDateSymbols,
+      patterns: localeDatePatternsCkb,
+      symbols: dateSymbolsCkb,
     );
 
     return SynchronousFuture<CupertinoLocalizations>(

@@ -1,9 +1,11 @@
+import 'package:ckb_localizations/ckb_localizations.dart';
+import 'package:ckb_localizations/src/symbols.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/date_symbol_data_custom.dart';
 import 'package:intl/intl.dart' as intl;
-import 'ckb_cupertino_localization_delegate.dart';
+import 'package:intl/number_symbols_data.dart';
 
 class _MaterialLocalizationsDelegateCkb
     extends LocalizationsDelegate<MaterialLocalizations> {
@@ -14,12 +16,14 @@ class _MaterialLocalizationsDelegateCkb
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
-    const String localeName = "ar";
+    const String localeName = CkbLocalizations.localeName;
+
+    numberFormatSymbols[localeName] = numberSymbolsCkb;
 
     initializeDateFormattingCustom(
       locale: localeName,
-      patterns: _ckbLocaleDatePatterns,
-      symbols: ckbDateSymbols,
+      patterns: localeDatePatternsCkb,
+      symbols: dateSymbolsCkb,
     );
 
     return SynchronousFuture<MaterialLocalizations>(
@@ -542,10 +546,10 @@ class MaterialLocalizationCkb extends GlobalMaterialLocalizations {
   String get viewLicensesButtonLabel => 'بینینی مۆڵەتەکان';
 
   @override
-  String get clearButtonTooltip => "سڕینەوە";
+  String get clearButtonTooltip => 'سڕینەوە';
 
   @override
-  String get selectedDateLabel => "كات";
+  String get selectedDateLabel => 'كات';
 }
 
 abstract class GlobalWidgetsLocalizations implements WidgetsLocalizations {
@@ -588,50 +592,3 @@ class _WidgetsLocalizationsDelegate
   String toString() =>
       'GlobalWidgetsLocalizations.delegate(${kWidgetsSupportedLanguages.length} locales)';
 }
-
-const _ckbLocaleDatePatterns = {
-  'd': 'd.',
-  'E': 'ccc',
-  'EEEE': 'cccc',
-  'LLL': 'LLL',
-  'LLLL': 'LLLL',
-  'M': 'L.',
-  'Md': 'd.M.',
-  'MEd': 'EEE d.M.',
-  'MMM': 'LLL',
-  'MMMd': 'd. MMM',
-  'MMMEd': 'EEE d. MMM',
-  'MMMM': 'LLLL',
-  'MMMMd': 'd. MMMM',
-  'MMMMEEEEd': 'EEEE d. MMMM',
-  'QQQ': 'QQQ',
-  'QQQQ': 'QQQQ',
-  'y': 'y',
-  'yM': 'M.y',
-  'yMd': 'd.M.y',
-  'yMEd': 'EEE d.MM.y',
-  'yMMM': 'MMM y',
-  'yMMMd': 'd. MMM y',
-  'yMMMEd': 'EEE d. MMM y',
-  'yMMMM': 'MMMM y',
-  'yMMMMd': 'd. MMMM y',
-  'yMMMMEEEEd': 'EEEE d. MMMM y',
-  'yQQQ': 'QQQ y',
-  'yQQQQ': 'QQQQ y',
-  'H': 'HH',
-  'Hm': 'HH:mm',
-  'Hms': 'HH:mm:ss',
-  'j': 'HH',
-  'jm': 'HH:mm',
-  'jms': 'HH:mm:ss',
-  'jmv': 'HH:mm v',
-  'jmz': 'HH:mm z',
-  'jz': 'HH z',
-  'm': 'm',
-  'ms': 'mm:ss',
-  's': 's',
-  'v': 'v',
-  'z': 'z',
-  'zzzz': 'zzzz',
-  'ZZZZ': 'ZZZZ',
-};

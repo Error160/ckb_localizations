@@ -36,7 +36,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(l10n.appName),
       ),
-      body: Text(l10n.localeName),
+      body: Column(
+        children: [
+          Text(l10n.localeName),
+          Text(l10n.stringFormat(DateTime.now().toString())),
+          Text(l10n.datetimeFormat(DateTime.now())),
+          Text(l10n.datetimeFormat(DateTime.now())),
+        ],
+      ),
     );
   }
 }

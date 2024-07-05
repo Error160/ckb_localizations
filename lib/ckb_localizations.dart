@@ -6,8 +6,9 @@ import 'src/localization.dart';
 
 /// Ckb Localizations for Material and Cupertino widgets and widgets that use Material or Cupertino widgets
 abstract final class CkbLocalizations {
-  /// Ckb Locale
-  static const Locale locale = Locale("ckb");
+  static const String localeName = 'ckb';
+  
+  static const Locale locale = Locale(localeName);
 
   /// Ckb Cupertino Localizations
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = [

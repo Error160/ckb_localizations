@@ -9,3 +9,8 @@
 
 ## 0.0.4
 * add docs
+
+## 0.0.5
+* Add date time support
+* Add number support
+* Fix some typos
