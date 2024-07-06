@@ -3,9 +3,7 @@ import 'package:ckb_localizations/src/symbols.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/date_symbol_data_custom.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:intl/number_symbols_data.dart';
 
 class _MaterialLocalizationsDelegateCkb
     extends LocalizationsDelegate<MaterialLocalizations> {
@@ -16,15 +14,9 @@ class _MaterialLocalizationsDelegateCkb
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
-    const String localeName = CkbLocalizations.localeName;
+    const localeName = CkbLocalizations.localeName;
 
-    numberFormatSymbols[localeName] = numberSymbolsCkb;
-
-    initializeDateFormattingCustom(
-      locale: localeName,
-      patterns: localeDatePatternsCkb,
-      symbols: dateSymbolsCkb,
-    );
+    initIntl();
 
     return SynchronousFuture<MaterialLocalizations>(
       MaterialLocalizationCkb(

@@ -14,3 +14,6 @@
 * Add date time support
 * Add number support
 * Fix some typos
+
+## 0.0.6
+* Add support for compactNumberSymbols

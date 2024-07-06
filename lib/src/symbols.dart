@@ -1,7 +1,10 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
+import 'package:ckb_localizations/ckb_localizations.dart';
+import 'package:intl/date_symbol_data_custom.dart';
 import 'package:intl/date_symbols.dart';
 import 'package:intl/number_symbols.dart';
+import 'package:intl/number_symbols_data.dart';
 
 const Map<String, String> localeDatePatternsCkb = {
   'd': 'd', // DAY
@@ -10,8 +13,8 @@ const Map<String, String> localeDatePatternsCkb = {
   'LLL': 'LLL', // ABBR_STANDALONE_MONTH
   'LLLL': 'LLLL', // STANDALONE_MONTH
   'M': 'M', // NUM_MONTH
-  'Md': 'd‏/M', // NUM_MONTH_DAY
-  'MEd': 'EEE، d‏/M', // NUM_MONTH_WEEKDAY_DAY
+  'Md': 'd\u200F/M', // NUM_MONTH_DAY
+  'MEd': 'EEE، d\u200F/M', // NUM_MONTH_WEEKDAY_DAY
   'MMM': 'LLL', // ABBR_MONTH
   'MMMd': 'd MMM', // ABBR_MONTH_DAY
   'MMMEd': 'EEE، d MMM', // ABBR_MONTH_WEEKDAY_DAY
@@ -21,9 +24,9 @@ const Map<String, String> localeDatePatternsCkb = {
   'QQQ': 'QQQ', // ABBR_QUARTER
   'QQQQ': 'QQQQ', // QUARTER
   'y': 'y', // YEAR
-  'yM': 'M‏/y', // YEAR_NUM_MONTH
-  'yMd': 'd‏/M‏/y', // YEAR_NUM_MONTH_DAY
-  'yMEd': 'EEE، d‏/M‏/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
+  'yM': 'M\u200F/y', // YEAR_NUM_MONTH
+  'yMd': 'd\u200F/M\u200F/y', // YEAR_NUM_MONTH_DAY
+  'yMEd': 'EEE، d\u200F/M\u200F/y', // YEAR_NUM_MONTH_WEEKDAY_DAY
   'yMMM': 'MMM y', // YEAR_ABBR_MONTH
   'yMMMd': 'd MMM y', // YEAR_ABBR_MONTH_DAY
   'yMMMEd': 'EEE، d MMM y', // YEAR_ABBR_MONTH_WEEKDAY_DAY
@@ -190,7 +193,12 @@ final DateSymbols dateSymbolsCkb = DateSymbols(
     'چوارەکی چوارەم',
   ],
   AMPMS: const ['پ.ن', 'د.ن'],
-  DATEFORMATS: const ['EEEE، d MMMM y', 'd MMMM y', 'dd‏/MM‏/y', 'd‏/M‏/y'],
+  DATEFORMATS: const [
+    'EEEE، d MMMM y',
+    'd MMMM y',
+    'dd\u200F/MM\u200F/y',
+    'd\u200F/M\u200F/y'
+  ],
   TIMEFORMATS: const ['h:mm:ss a zzzz', 'h:mm:ss a z', 'h:mm:ss a', 'h:mm a'],
   DATETIMEFORMATS: const ['{1}، {0}', '{1}، {0}', '{1}، {0}', '{1}، {0}'],
   FIRSTDAYOFWEEK: 5,
@@ -207,12 +215,68 @@ const NumberSymbols numberSymbolsCkb = NumberSymbols(
   PLUS_SIGN: '\u200E+',
   MINUS_SIGN: '\u200E-',
   EXP_SYMBOL: 'E',
-  PERMILL: '\u2030',
-  INFINITY: '\u221E',
-  NAN: '\u0644\u064A\u0633\u00A0\u0631\u0642\u0645\u064B\u0627',
+  PERMILL: '‰',
+  INFINITY: '∞',
+  NAN: 'نە ژمارەیە',
   DECIMAL_PATTERN: '#,##0.###',
   SCIENTIFIC_PATTERN: '#E0',
   PERCENT_PATTERN: '#,##0%',
-  CURRENCY_PATTERN: '\u200F#,##0.00\u00A0\u00A4;\u200F-#,##0.00\u00A0\u00A4',
+  CURRENCY_PATTERN: '\u200F#,##0.00 ¤;\u200F-#,##0.00 ¤',
   DEF_CURRENCY_CODE: 'EGP',
 );
+
+final CompactNumberSymbols compactNumberSymbolsCkb = CompactNumberSymbols(
+  COMPACT_DECIMAL_SHORT_PATTERN: const {
+    3: {
+      'few': '0 هەزار',
+      'many': '0 هەزار',
+      'one': '0 هەزار',
+      'other': '0 هەزار',
+      'two': '0 هەزار',
+      'zero': '0 هەزار'
+    },
+    4: {'other': '00 هەزار'},
+    6: {'other': '0 ملیۆن'},
+    9: {'other': '0 ملیار'},
+    12: {'other': '0 ترلیۆن'},
+  },
+  COMPACT_DECIMAL_LONG_PATTERN: const {
+    3: {
+      'few': '0 هەزاران',
+      'many': '0 هەزار',
+      'one': '0 هەزار',
+      'other': '0 هەزار',
+      'two': '0 هەزار',
+      'zero': '0 هەزار',
+    },
+    4: {'other': '00 هەزار'},
+    6: {
+      'few': '0 ملیۆنان',
+      'many': '0 ملیۆن',
+      'one': '0 ملیۆن',
+      'other': '0 ملیۆن',
+      'two': '0 ملیۆن',
+      'zero': '0 ملیۆن',
+    },
+    8: {'other': '000 ملیۆن'},
+    9: {'other': '0 ملیار'},
+    12: {'other': '0 ترلیۆن'},
+  },
+  COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN: const {
+    3: {'other': '0 هەزار ¤'},
+    6: {'other': '0 ملیۆن ¤'},
+    9: {'other': '0 ملیار ¤'},
+    12: {'other': '0 ترلیۆن ¤'},
+  },
+);
+
+void initIntl() {
+  const localeName = CkbLocalizations.localeName;
+  numberFormatSymbols[localeName] = numberSymbolsCkb;
+  compactNumberSymbols[localeName] = compactNumberSymbolsCkb;
+  initializeDateFormattingCustom(
+    locale: localeName,
+    patterns: localeDatePatternsCkb,
+    symbols: dateSymbolsCkb,
+  );
+}

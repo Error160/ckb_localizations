@@ -5,9 +5,7 @@ import 'package:ckb_localizations/src/symbols.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/date_symbol_data_custom.dart' as date_symbol_data_custom;
 import 'package:intl/intl.dart' as intl;
-import 'package:intl/number_symbols_data.dart';
 
 class _CupertinoLocalizationsDelegateCkb
     extends LocalizationsDelegate<CupertinoLocalizations> {
@@ -20,13 +18,7 @@ class _CupertinoLocalizationsDelegateCkb
   Future<CupertinoLocalizations> load(Locale locale) async {
     const localeName = CkbLocalizations.localeName;
 
-    numberFormatSymbols[localeName] = numberSymbolsCkb;
-
-    date_symbol_data_custom.initializeDateFormattingCustom(
-      locale: localeName,
-      patterns: localeDatePatternsCkb,
-      symbols: dateSymbolsCkb,
-    );
+    initIntl();
 
     return SynchronousFuture<CupertinoLocalizations>(
       CupertinoLocalizationCkb(
@@ -210,3 +202,8 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
   @override
   String get clearButtonLabel => 'سڕینەوە';
 }
+
+
+
+
+
