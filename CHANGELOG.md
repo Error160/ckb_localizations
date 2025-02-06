@@ -23,3 +23,6 @@
 
 ## 0.1.1
 * Fix CHANGELOG.md
+
+## 0.1.2
+* Fix CHANGELOG.md
