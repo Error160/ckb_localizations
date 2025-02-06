@@ -17,3 +17,6 @@
 
 ## 0.0.6
 * Add support for compactNumberSymbols
+
+## 0.1.0
+* Fix `Added weekdayFormat with 'EEEE'` by @zerefati
