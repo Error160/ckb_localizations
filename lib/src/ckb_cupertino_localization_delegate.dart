@@ -44,7 +44,7 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
     super.localeName = 'ckb',
     required super.fullYearFormat,
     required super.dayFormat,
-    required super.mediumDateFormat,
+    required super.weekdayFormat,
     required super.singleDigitHourFormat,
     required super.singleDigitMinuteFormat,
     required super.doubleDigitMinuteFormat,
@@ -202,8 +202,3 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
   @override
   String get clearButtonLabel => 'سڕینەوە';
 }
-
-
-
-
-
