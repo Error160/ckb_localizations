@@ -197,7 +197,7 @@ final DateSymbols dateSymbolsCkb = DateSymbols(
     'EEEE، d MMMM y',
     'd MMMM y',
     'dd\u200F/MM\u200F/y',
-    'd\u200F/M\u200F/y'
+    'd\u200F/M\u200F/y',
   ],
   TIMEFORMATS: const ['h:mm:ss a zzzz', 'h:mm:ss a z', 'h:mm:ss a', 'h:mm a'],
   DATETIMEFORMATS: const ['{1}، {0}', '{1}، {0}', '{1}، {0}', '{1}، {0}'],
@@ -233,7 +233,7 @@ final CompactNumberSymbols compactNumberSymbolsCkb = CompactNumberSymbols(
       'one': '0 هەزار',
       'other': '0 هەزار',
       'two': '0 هەزار',
-      'zero': '0 هەزار'
+      'zero': '0 هەزار',
     },
     4: {'other': '00 هەزار'},
     6: {'other': '0 ملیۆن'},
