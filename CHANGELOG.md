@@ -20,3 +20,6 @@
 
 ## 0.1.0
 * Fix `Added weekdayFormat with 'EEEE'` by @zerefati
+
+## 0.1.1
+* Fix CHANGELOG.md
