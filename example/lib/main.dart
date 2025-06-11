@@ -1,8 +1,6 @@
 import 'package:ckb_localizations/ckb_localizations.dart';
-import 'package:example/main.dart';
+import 'package:example/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-
-export "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 void main() {
   runApp(const MyApp());
