@@ -26,3 +26,6 @@
 
 ## 0.1.2
 * Fix CHANGELOG.md
+
+## 0.2.0
+* Update `intl` version to 0.20.2
