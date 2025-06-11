@@ -203,4 +203,10 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
 
   @override
   String get clearButtonLabel => 'سڕینەوە';
+
+  @override
+  String get backButtonLabel => 'گەڕانەوە';
+
+  @override
+  String get cancelButtonLabel => 'هەڵوەشاندنەوە';
 }

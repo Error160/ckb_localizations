@@ -46,4 +46,25 @@ class WidgetsLocalizationCkb extends WidgetsLocalizations {
 
   @override
   String get reorderItemUp => 'بەرەو سەرەوە بڕۆ';
+
+  @override
+  String get copyButtonLabel => 'کۆپیکردن';
+
+  @override
+  String get cutButtonLabel => 'بڕین';
+
+  @override
+  String get lookUpButtonLabel => 'بە دوادا گەڕان';
+
+  @override
+  String get pasteButtonLabel => 'چەسپاندن';
+
+  @override
+  String get searchWebButtonLabel => 'گەڕان لە وێب';
+
+  @override
+  String get selectAllButtonLabel => 'دیاری کردنی هەموو';
+
+  @override
+  String get shareButtonLabel => 'هاوبەشکردن';
 }
