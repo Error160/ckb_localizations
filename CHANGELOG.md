@@ -29,3 +29,6 @@
 
 ## 0.2.0
 * Update `intl` version to 0.20.2
+
+## 0.2.1
+* Update `README.md` add docs how to use the package
