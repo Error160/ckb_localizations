@@ -213,7 +213,7 @@ class CupertinoLocalizationCkb extends GlobalCupertinoLocalizations {
   @override
   String get collapsedHint => 'کەشەیەک';
   
-@override
+  @override
   String get expandedHint => 'کراوەتەوە';
   
   @override
